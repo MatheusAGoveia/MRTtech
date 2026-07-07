@@ -1,0 +1,17 @@
+# Videos e arquivos grandes
+*.webm
+*.mp4
+*.zip
+*.tar.gz
+
+# Arquivos de log e testes do Git
+git_push_err.txt
+git_push_err_utf8.txt
+commits.txt
+commits_utf8.txt
+
+# Node e dependencias
+node_modules/
+dist/
+.env
+.DS_Store

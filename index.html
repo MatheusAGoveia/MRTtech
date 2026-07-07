@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <script>
+        window.onerror = function (msg, url, line, col, error) {
+            const errDiv = document.createElement('div');
+            errDiv.style.cssText = 'position:fixed;top:20px;left:20px;right:20px;background:rgba(220,53,69,0.95);color:white;padding:20px;z-index:999999;font-family:monospace;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.5);max-height:80vh;overflow:auto;line-height:1.5;';
+            errDiv.innerHTML = '<h3 style="margin-top:0;color:#ffc107;">⚠️ Erro de JavaScript Detectado</h3>' +
+                '<p><strong>Mensagem:</strong> ' + msg + '</p>' +
+                '<p><strong>Arquivo:</strong> ' + url + ' (Linha: ' + line + ', Coluna: ' + col + ')</p>' +
+                (error && error.stack ? '<pre style="background:rgba(0,0,0,0.2);padding:10px;border-radius:4px;overflow-x:auto;">' + error.stack + '</pre>' : '');
+            document.body.appendChild(errDiv);
+            return false;
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRT | Drone Cinema & Inteligência Visual</title>
+    <meta name="description"
+        content="Captação cinematográfica aérea e mapeamento de alta tecnologia para haras, propriedades rurais e cavalos de raça Puro Sangue. Perspectivas majestosas por MRT.">
+
+    <!-- Google Fonts & Fontshare Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;850&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Importação do Cabinet Grotesk do Fontshare */
+        @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,400&display=swap');
+    </style>
+
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Import Map para ES Modules -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://esm.sh/three@0.149.0",
+                "three/": "https://esm.sh/three@0.149.0/",
+                "three/examples/jsm/controls/OrbitControls.js": "https://esm.sh/three@0.149.0/examples/jsm/controls/OrbitControls.js"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Kinetic Typography Loader -->
+    <div id="loader" class="loader-container">
+        <div class="loader-wrap">
+            <span class="loader-letter">M</span>
+            <span class="loader-letter">R</span>
+            <span class="loader-letter">T</span>
+        </div>
+        <div class="loader-sub">PERSPECTIVAS DO ALTO</div>
+    </div>
+
+    <!-- WebGL Particle Flight Mesh Background -->
+    <canvas id="canvas-webgl"></canvas>
+
+    <!-- App Wrappers -->
+    <div id="smooth-scroll-wrapper">
+
+        <!-- Navigation Header -->
+        <header id="main-header" class="header">
+            <div class="header-logo" data-magnetic>
+                <span class="logo-symbol">▲</span> MRT<span class="logo-accent">AÉREO</span>
+            </div>
+            <nav class="header-nav">
+                <a href="#about" class="nav-link" data-magnetic>Sobre</a>
+                <a href="#portfolio" class="nav-link" data-magnetic>Portfólio</a>
+                <a href="#services" class="nav-link" data-magnetic>Serviços</a>
+                <a href="#contact" class="nav-link nav-btn" data-magnetic>Orçamento</a>
+            </nav>
+            <div class="header-menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- Hero Section -->
+            <section id="hero" class="hero-section">
+                <!-- Background Image Carousel -->
+                <div class="hero-carousel-wrapper">
+                    <div class="hero-carousel-slide active" style="background-image: url('assets/bg_slide1.jpg');">
+                    </div>
+                    <div class="hero-carousel-slide" style="background-image: url('assets/bg_slide2.jpg');"></div>
+                    <div class="hero-carousel-slide" style="background-image: url('assets/bg_slide3.jpg');"></div>
+                    <div class="hero-carousel-slide" style="background-image: url('assets/bg_slide4.jpg');"></div>
+                    <div class="hero-carousel-slide" style="background-image: url('assets/bg_slide5.jpg');"></div>
+                    <div class="hero-carousel-overlay"></div>
+                </div>
+
+                <div class="hero-container">
+                    <div class="hero-tagline">
+                        <span class="reveal-wrapper"><span class="reveal-word">TECNOLOGIA.</span></span>
+                        <span class="reveal-wrapper"><span class="reveal-word">ARTE.</span></span>
+                        <span class="reveal-wrapper"><span class="reveal-word">PRESTÍGIO.</span></span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="reveal-line">A ESSÊNCIA DOS</span>
+                        <span class="reveal-line">MAIORES HARAS</span>
+                        <span class="reveal-line font-accent">VISTA DO CEU.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Combinamos sensibilidade artística e inteligência técnica no ar para capturar a majestade de
+                        cavalos de raça e propriedades rurais com precisão de elite.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="#portfolio" class="btn btn-primary" data-magnetic>Ver Portfólio</a>
+                        <a href="#contact" class="btn btn-secondary" data-magnetic>Falar com Especialista</a>
+                    </div>
+                </div>
+
+                <!-- Floating Aero Indicator -->
+                <div class="hero-scroll-indicator">
+                    <div class="mouse-icon">
+                        <div class="wheel"></div>
+                    </div>
+                    <span>ROLE PARA EXPLORAR</span>
+                </div>
+            </section>
+
+            <!-- About / Manifesto Section (Word-by-word reveal on scroll) -->
+            <section id="about" class="about-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-left">
+                            <span class="section-label">O MANIFESTO</span>
+                        </div>
+                        <div class="col-right">
+                            <h2 class="manifesto-text js-split-text">
+                                Um haras não é composto apenas por terras e cercas; ele abriga paixão, patrimônio e
+                                genética lendária. O nosso propósito na MRT é enquadrar essa grandeza por ângulos
+                                impossíveis de serem alcançados da terra firme. Desenhamos trajetórias de voo que
+                                capturam o dinamismo dos cavalos criados em liberdade, revelando a totalidade majestosa
+                                do seu legado.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Grid Section (3D hover Tilt) -->
+            <section id="portfolio" class="portfolio-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-label">PROJETOS EM DESTAQUE</span>
+                        <h2 class="section-title">NOSSAS TRAJETÓRIAS</h2>
+                        <p class="section-subtitle">Clique em qualquer projeto para abrir a galeria interativa e ver
+                            todas os cliques.</p>
+                    </div>
+
+                    <div class="projects-grid">
+                        <!-- Project Card 1 -->
+                        <div class="project-card-wrapper">
+                            <div class="project-card js-tilt-card">
+                                <canvas class="project-card-canvas" data-image="assets/gallery_drone.jpg"></canvas>
+                                <div class="project-card-overlay"></div>
+                                <div class="project-card-content">
+                                    <span class="project-category">TECNOLOGIA E EQUIPAMENTO</span>
+                                    <h3 class="project-title">Piloto FPV & Mavic Pro</h3>
+                                    <span class="project-card-view-all">Ver Todas as Fotos &rarr;</span>
+                                </div>
+                                <div class="project-card-sheen"></div>
+                            </div>
+                        </div>
+
+                        <!-- Project Card 2 -->
+                        <div class="project-card-wrapper">
+                            <div class="project-card js-tilt-card">
+                                <canvas class="project-card-canvas" data-image="assets/gallery_alps.jpg"></canvas>
+                                <div class="project-card-overlay"></div>
+                                <div class="project-card-content">
+                                    <span class="project-category">IMAGENS AÉREAS</span>
+                                    <h3 class="project-title">Cachoeiras de Mont-Fort</h3>
+                                    <span class="project-card-view-all">Ver Todas as Fotos &rarr;</span>
+                                </div>
+                                <div class="project-card-sheen"></div>
+                            </div>
+                        </div>
+
+                        <!-- Project Card 3 -->
+                        <div class="project-card-wrapper">
+                            <div class="project-card js-tilt-card">
+                                <canvas class="project-card-canvas" data-image="assets/gallery_speedboat.jpg"></canvas>
+                                <div class="project-card-overlay"></div>
+                                <div class="project-card-content">
+                                    <span class="project-category">PRODUÇÃO EXCLUSIVA</span>
+                                    <h3 class="project-title">Locações e Náutica</h3>
+                                    <span class="project-card-view-all">Ver Todas as Fotos &rarr;</span>
+                                </div>
+                                <div class="project-card-sheen"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="services-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-label">A TÉCNICA (THE CRAFT)</span>
+                        <h2 class="section-title">ATIVIDADE SUBLIME</h2>
+                    </div>
+
+                    <div class="services-list">
+                        <!-- Service Item 1 -->
+                        <div class="service-item reveal-item">
+                            <div class="service-num">01</div>
+                            <div class="service-info">
+                                <h3 class="service-title">Cinema e Publicidade de Grandes Marcas</h3>
+                                <p class="service-desc">Imagens em 4K HDR de alta taxa de quadros (slow-motion) para
+                                    materiais publicitários, leilões virtuais e divulgação nobre de raças equinas.</p>
+                            </div>
+                            <div class="service-tags">
+                                <span>4K HDR</span>
+                                <span>Edição Color Grading</span>
+                                <span>FPV Cinematográfico</span>
+                            </div>
+                        </div>
+
+                        <!-- Service Item 2 -->
+                        <div class="service-item reveal-item">
+                            <div class="service-num">02</div>
+                            <div class="service-info">
+                                <h3 class="service-title">Scouting Genético & Treinamento</h3>
+                                <p class="service-desc">Uso de drones FPV de alta agilidade para capturar e analisar a
+                                    postura, ritmo e biomecânica do galope e do salto em raios amplos de treinamento.
+                                </p>
+                            </div>
+                            <div class="service-tags">
+                                <span>Drone FPV</span>
+                                <span>Rastreamento em Alta Velocidade</span>
+                                <span>Análise Dinâmica</span>
+                            </div>
+                        </div>
+
+                        <!-- Service Item 3 -->
+                        <div class="service-item reveal-item">
+                            <div class="service-num">03</div>
+                            <div class="service-info">
+                                <h3 class="service-title">Mapeamento de Solo e Topografia Estendida</h3>
+                                <p class="service-desc">Processamento de ortomosaicos georreferenciados para demarcações
+                                    de piquetes, cálculo exato de áreas produtivas e planejamento de drenagem.</p>
+                            </div>
+                            <div class="service-tags">
+                                <span>Ortomosaicos</span>
+                                <span>Fotogrametria</span>
+                                <span>GIS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-text">
+                            <span class="section-label">CONTATO EXCLUSIVO</span>
+                            <h2 class="section-title">DECOLE SEU PROJETO</h2>
+                            <p class="contact-desc">
+                                Agende uma visita técnica ou faça seu planejamento visual conosco. Respostas rápidas e
+                                adequação total ao padrão de segurança exigido pela ANAC.
+                            </p>
+                            <div class="contact-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Contato Direto</span>
+                                    <span class="detail-value">+55 (11) 99999-8888</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">E-mail Comercial</span>
+                                    <span class="detail-value">contato@mrtaereo.com.br</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form-wrapper">
+                            <form id="contact-form" class="contact-form"
+                                onsubmit="event.preventDefault(); alert('Solicitação de orçamento enviada com absoluto prestígio!');">
+                                <div class="form-group">
+                                    <label for="name">Seu Nome / Haras</label>
+                                    <input type="text" id="name" required placeholder="Ex: Haras d'Ouro">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail para Retorno</label>
+                                    <input type="email" id="email" required placeholder="Ex: contato@haras.com.br">
+                                </div>
+                                <div class="form-group">
+                                    <label for="project-type">Qual o foco do projeto?</label>
+                                    <select id="project-type">
+                                        <option value="cinema">Cinema & Fotografia de Cavalos</option>
+                                        <option value="scouting">Scouting Biomecânico de Treinamento</option>
+                                        <option value="topography">Mapeamento Geográfico e Topografia</option>
+                                        <option value="full">Cobertura Completa Estendida</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Fale brevemente sobre suas expectativas</label>
+                                    <textarea id="message" rows="4"
+                                        placeholder="Ex: Desejamos capturar a corrida livre de 10 garanhões no pôr-do-sol..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-submit" data-magnetic>Enviar
+                                    Solicitação</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container footer-content">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        ▲ MRT<span>AÉREO</span>
+                    </div>
+                    <div class="footer-moto">NOVAS ALTURAS, NOVAS PERSPECTIVAS.</div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-copy">
+                        &copy; 2026 MRT - Todos os direitos reservados.
+                    </div>
+                    <div class="footer-links">
+                        <a href="#" class="foot-link">ANAC Regularizado</a>
+                        <a href="#" class="foot-link">Termos de Uso</a>
+                        <a href="#" class="foot-link">Privacidade</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts CDN -->
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- GSAP ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <button class="lightbox-next" id="lightbox-next">&#10095;</button>
+        <div class="lightbox-content">
+            <img src="" id="lightbox-img" alt="Visualização">
+            <div class="lightbox-caption">
+                <span id="lightbox-category" class="lightbox-category"></span>
+                <h4 id="lightbox-title" class="lightbox-title"></h4>
+                <span id="lightbox-counter" class="lightbox-counter"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor Markup -->
+    <div id="custom-cursor"></div>
+
+    <!-- Javascript Principal (ES Modules) -->
+    <script type="module" src="app.js?v=2"></script>
+</body>
+
+</html>
