@@ -100,7 +100,11 @@ function initLoader() {
         .to(".loader-container", {
             y: "-100%",
             duration: 0.85,
-            ease: "power4.inOut"
+            ease: "power4.inOut",
+            onComplete: () => {
+                const loader = document.getElementById("loader");
+                if (loader) loader.style.display = "none";
+            }
         }, "-=0.3")
 
         .to(".header", {
