@@ -44,6 +44,9 @@ function initApp() {
 
     // 8. Iniciar visualizador de imagens do portfólio (Lightbox)
     try { initLightbox(); } catch (e) { console.error(e); }
+
+    // 9. Iniciar interceptor de formulário de contato (WhatsApp)
+    try { initContactForm(); } catch (e) { console.error(e); }
 }
 
 // Previne condição de corrida do ciclo de vida em scripts carregados como tipo módulo
@@ -676,5 +679,35 @@ function initLightbox() {
             currentIndex = (currentIndex + 1) % galleryImages.length;
             updateLightboxContent();
         }
+    });
+}
+
+// Interceptador e formatador de orçamento para WhatsApp
+function initContactForm() {
+    const contactForm = document.getElementById("contact-form");
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        const projectTypeSelect = document.getElementById("project-type");
+        const projectTypeText = projectTypeSelect ? projectTypeSelect.options[projectTypeSelect.selectedIndex].text : "N/A";
+
+        const message = document.getElementById("message").value.trim();
+
+        // Montar a mensagem estruturada
+        const whatsappText = `Olá! Gostaria de solicitar um orçamento para meu Haras.\n\n` +
+            `*Nome/Haras:* ${name}\n` +
+            `*E-mail:* ${email}\n` +
+            `*Foco do Projeto:* ${projectTypeText}\n` +
+            `*Expectativas:* ${message}`;
+
+        const whatsappUrl = `https://wa.me/553196429501?text=${encodeURIComponent(whatsappText)}`;
+
+        // Abrir WhatsApp em nova aba
+        window.open(whatsappUrl, "_blank");
     });
 }
