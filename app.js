@@ -47,6 +47,9 @@ function initApp() {
 
     // 9. Iniciar interceptor de formulário de contato (WhatsApp)
     try { initContactForm(); } catch (e) { console.error(e); }
+
+    // 10. Iniciar menu responsivo (mobile menu)
+    try { initMobileMenu(); } catch (e) { console.error(e); }
 }
 
 // Previne condição de corrida do ciclo de vida em scripts carregados como tipo módulo
@@ -709,5 +712,35 @@ function initContactForm() {
 
         // Abrir WhatsApp em nova aba
         window.open(whatsappUrl, "_blank");
+    });
+}
+
+// Menu interativo mobile hambúrguer
+function initMobileMenu() {
+    const menuToggle = document.getElementById("menu-toggle");
+    const headerNav = document.querySelector(".header-nav");
+
+    if (!menuToggle || !headerNav) return;
+
+    menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        headerNav.classList.toggle("active");
+
+        // Travar scroll do body quando menu está aberto
+        if (headerNav.classList.contains("active")) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+    });
+
+    // Fechar menu ao clicar em qualquer link
+    const navLinks = headerNav.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            headerNav.classList.remove("active");
+            document.body.style.overflow = "";
+        });
     });
 }
