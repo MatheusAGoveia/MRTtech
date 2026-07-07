@@ -699,8 +699,8 @@ function initContactForm() {
         const message = document.getElementById("message").value.trim();
 
         // Montar a mensagem estruturada
-        const whatsappText = `Olá! Gostaria de solicitar um orçamento para meu Haras.\n\n` +
-            `*Nome/Haras:* ${name}\n` +
+        const whatsappText = `Olá! Gostaria de solicitar um orçamento para meu projeto.\n\n` +
+            `*Nome/Empresa:* ${name}\n` +
             `*E-mail:* ${email}\n` +
             `*Foco do Projeto:* ${projectTypeText}\n` +
             `*Expectativas:* ${message}`;
