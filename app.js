@@ -720,16 +720,21 @@ function initMobileMenu() {
     const menuToggle = document.getElementById("menu-toggle");
     const headerNav = document.querySelector(".header-nav");
 
+    console.log("initMobileMenu: elements loaded", { menuToggle, headerNav });
+
     if (!menuToggle || !headerNav) return;
 
     menuToggle.addEventListener("click", () => {
+        console.log("menuToggle clicked! Current classes:", menuToggle.className, headerNav.className);
         menuToggle.classList.toggle("active");
         headerNav.classList.toggle("active");
 
         // Travar scroll do body quando menu está aberto
         if (headerNav.classList.contains("active")) {
+            console.log("menu open, body overflow hidden");
             document.body.style.overflow = "hidden";
         } else {
+            console.log("menu closed, body overflow dynamic");
             document.body.style.overflow = "";
         }
     });
@@ -738,6 +743,7 @@ function initMobileMenu() {
     const navLinks = headerNav.querySelectorAll(".nav-link");
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
+            console.log("navLink clicked", link.getAttribute("href"));
             menuToggle.classList.remove("active");
             headerNav.classList.remove("active");
             document.body.style.overflow = "";

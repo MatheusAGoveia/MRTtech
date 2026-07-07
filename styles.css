@@ -899,7 +899,7 @@ body {
     }
 
     .contact-section {
-        padding: 100px 5vw;
+        padding: 120px 8vw;
     }
 
     .row {
@@ -954,6 +954,8 @@ body {
     .header-menu-toggle {
         display: flex;
         z-index: 1000;
+        padding: 15px;
+        margin: -15px;
     }
 
     .header-menu-toggle.active span:nth-child(1) {
@@ -983,31 +985,38 @@ body {
     }
 
     .contact-section {
-        padding: 80px 20px;
+        padding: 100px 8vw;
     }
 
     .contact-form-wrapper {
         padding: 30px 20px;
         width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 100%;
         box-sizing: border-box;
     }
 
     .contact-grid {
+        grid-template-columns: 1fr;
         gap: 40px;
-        justify-items: center;
     }
 
     .contact-text {
-        text-align: center;
+        text-align: left;
         width: 100%;
+    }
+
+    .contact-details {
+        align-items: flex-start;
+    }
+
+    .detail-item {
+        align-items: flex-start;
     }
 }
 
 @media (max-width: 480px) {
     .contact-section {
-        padding: 60px 16px;
+        padding: 80px 8vw;
     }
 
     .contact-form-wrapper {
