@@ -598,10 +598,10 @@ function initLightbox() {
     // Banco de Imagens completo com todas as mídias da galeria e slides do background (8 no total)
     const galleryImages = [
         { src: 'assets/conteudo1.jpeg', title: 'PANORAMA CACHOEIRA', category: 'PANORAMA CACHOEIRA' },
-        { src: 'assets/conteudo2.jpeg', title: 'Cachoeiras de Capitólio', category: 'TURISMO DE LUXO' },
+        { src: 'assets/conteudo2.jpeg', title: 'Cachoeiras de Capitólio', category: 'TURISMO' },
         { src: 'assets/conteudo3.jpeg', title: 'Imagens aéreas de Campos', category: 'PRODUÇÃO EXCLUSIVA' },
         { src: 'assets/conteudo4.jpeg', title: 'Topografia de Áreas', category: 'MAPEAMENTO TÉCNICO' },
-        { src: 'assets/conteudo5.jpeg', title: 'Cobertura Vegetal', category: 'IMAGENS DE LUXO' },
+        { src: 'assets/conteudo5.jpeg', title: 'Cobertura Vegetal', category: 'PRESERVAÇÃO AMBIENTAL' },
         { src: 'assets/conteudo6.jpeg', title: 'Monitoramento de Área', category: 'PRESERVAÇÃO AMBIENTAL' },
         { src: 'assets/conteudo7.jpeg', title: 'Monitoramento de Lavouras', category: 'AGRONEGÓCIO' },
     ];
