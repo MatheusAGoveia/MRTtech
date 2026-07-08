@@ -597,13 +597,13 @@ function initLightbox() {
 
     // Banco de Imagens completo com todas as mídias da galeria e slides do background (8 no total)
     const galleryImages = [
-        { src: 'assets/gallery_drone.jpg', title: 'Piloto FPV & Mavic Pro', category: 'TECNOLOGIA E EQUIPAMENTO' },
-        { src: 'assets/gallery_alps.jpg', title: 'Cachoeiras de Mont-Fort', category: 'IMAGENS AÉREAS' },
-        { src: 'assets/gallery_speedboat.jpg', title: 'Locações e Náutica', category: 'PRODUÇÃO EXCLUSIVA' },
-        { src: 'assets/bg_slide1.jpg', title: 'Operações de Vôo FPV Plano', category: 'EQUIPAMENTO E BASE' },
-        { src: 'assets/bg_slide2.jpg', title: 'Haras Dourado Tradicional', category: 'IMAGENS DE LUXO' },
-        { src: 'assets/bg_slide3.jpg', title: 'Orla Esférica Drone Global', category: 'PERSPECTIVAS CRIATIVAS' },
-        { src: 'assets/bg_slide4.jpg', title: 'Costão e Rochedos Costeiros', category: 'CINEMA E MONITORAMENTO' },
+        { src: 'assets/conteudo1.jpeg', title: 'Piloto FPV & Mavic Pro', category: 'TECNOLOGIA E EQUIPAMENTO' },
+        { src: 'assets/conteudo2.jpeg', title: 'Cachoeiras de Mont-Fort', category: 'IMAGENS AÉREAS' },
+        { src: 'assets/conteudo3.jpeg', title: 'Locações e Náutica', category: 'PRODUÇÃO EXCLUSIVA' },
+        { src: 'assets/conteudo4.jpeg', title: 'Operações de Vôo FPV Plano', category: 'EQUIPAMENTO E BASE' },
+        { src: 'assets/conteudo5.jpeg', title: 'Haras Dourado Tradicional', category: 'IMAGENS DE LUXO' },
+        { src: 'assets/conteudo6.jpeg', title: 'Orla Esférica Drone Global', category: 'PERSPECTIVAS CRIATIVAS' },
+        { src: 'assets/conteudo7.jpeg', title: 'Costão e Rochedos Costeiros', category: 'CINEMA E MONITORAMENTO' },
         { src: 'assets/bg_slide5.jpg', title: 'Ilha Nadir Vista Superior', category: 'MAPEAMENTO AÉREO' }
     ];
 
