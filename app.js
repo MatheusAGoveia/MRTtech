@@ -597,14 +597,13 @@ function initLightbox() {
 
     // Banco de Imagens completo com todas as mídias da galeria e slides do background (8 no total)
     const galleryImages = [
-        { src: 'assets/conteudo1.jpeg', title: 'Piloto FPV & Mavic Pro', category: 'TECNOLOGIA E EQUIPAMENTO' },
-        { src: 'assets/conteudo2.jpeg', title: 'Cachoeiras de Mont-Fort', category: 'IMAGENS AÉREAS' },
-        { src: 'assets/conteudo3.jpeg', title: 'Locações e Náutica', category: 'PRODUÇÃO EXCLUSIVA' },
-        { src: 'assets/conteudo4.jpeg', title: 'Operações de Vôo FPV Plano', category: 'EQUIPAMENTO E BASE' },
-        { src: 'assets/conteudo5.jpeg', title: 'Haras Dourado Tradicional', category: 'IMAGENS DE LUXO' },
-        { src: 'assets/conteudo6.jpeg', title: 'Orla Esférica Drone Global', category: 'PERSPECTIVAS CRIATIVAS' },
-        { src: 'assets/conteudo7.jpeg', title: 'Costão e Rochedos Costeiros', category: 'CINEMA E MONITORAMENTO' },
-        { src: 'assets/bg_slide5.jpg', title: 'Ilha Nadir Vista Superior', category: 'MAPEAMENTO AÉREO' }
+        { src: 'assets/conteudo1.jpeg', title: 'Piloto DJI mini 4K', category: 'TECNOLOGIA E EQUIPAMENTO' },
+        { src: 'assets/conteudo2.jpeg', title: 'Cachoeiras de Capitólio', category: 'IMAGENS AÉREAS' },
+        { src: 'assets/conteudo3.jpeg', title: 'Imagens aéreas de Campos', category: 'PRODUÇÃO EXCLUSIVA' },
+        { src: 'assets/conteudo4.jpeg', title: 'Topografia de Áreas', category: 'EQUIPAMENTO E BASE' },
+        { src: 'assets/conteudo5.jpeg', title: 'Cobertura Vegetal', category: 'IMAGENS DE LUXO' },
+        { src: 'assets/conteudo6.jpeg', title: 'Monitoramento de Área', category: 'PERSPECTIVAS CRIATIVAS' },
+        { src: 'assets/conteudo7.jpeg', title: 'Monitoramento de Lavouras', category: 'CINEMA E MONITORAMENTO' },
     ];
 
     let currentIndex = 0;
